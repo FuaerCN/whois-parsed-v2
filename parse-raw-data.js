@@ -302,6 +302,174 @@ var trRegex = {
   notFound: "No match found",
 };
 
+var itRegex = {
+  domainName: "Domain: *(.+)",
+  registrar: "Registrar: *(.+)",
+  creationDate: "Created: *(.+)",
+  expirationDate: "Expire Date: *(.+)",
+  status: "Status: *(.+)",
+  notFound: "Status:             AVAILABLE",
+};
+
+var aeRegex = {
+  domainName: "Domain Name: *(.+)",
+  registrar: "Registrant Contact Organisation: *(.+)",
+  status: "Status: *(.+)",
+  nameServers: "Name Server: *(.+)",
+  notFound: "No Data Found",
+};
+
+var hrRegex = {
+  domainName: "Domain Name: *(.+)",
+  registrar: "Registrant Name: *(.+)",
+  creationDate: "Creation Date: *(.+)",
+  expirationDate: "Registrar Registration Expiration Date: *(.+)",
+  nameServers: "Name Server: *(.+)",
+  notFound: "No entries found",
+};
+
+var hkRegex = {
+  domainName: "Domain Name: *(.+)",
+  registrar: "Registrar Name: *(.+)",
+  creationDate: "Domain Name Commencement Date: *(.+)",
+  expirationDate: "Expiry Date: *(.+)",
+  status: "Domain Status: *(.+)",
+  nameServers: "Name Servers Information: *(.+)",
+  dateFormat: "DD-MM-YYYY",
+  notFound: "The domain has not been registered",
+};
+
+var siRegex = {
+  domainName: "domain: *(.+)",
+  registrar: "registrar: *(.+)",
+  creationDate: "created: *(.+)",
+  expirationDate: "expire: *(.+)",
+  status: "status: *(.+)",
+  nameServers: "nameserver: *(.+)",
+  notFound: "No entries found",
+};
+
+var dkRegex = {
+  domainName: "Domain: *(.+)",
+  registrar: "Registrar: *(.+)",
+  creationDate: "Registered: *(.+)",
+  expirationDate: "Expires: *(.+)",
+  status: "Status: *(.+)",
+  nameServers: "Hostname: *(.+)",
+  notFound: "No entries found",
+};
+
+var mxRegex = {
+  domainName: "Domain Name: *(.+)",
+  registrar: "Registrar: *(.+)",
+  creationDate: "Created On: *(.+)",
+  expirationDate: "Expiration Date: *(.+)",
+  nameServers: "DNS: *(.+)",
+  notFound: "Object_Not_Found",
+};
+
+var aiRegex = {
+  domainName: "Domain Name: *(.+)",
+  registrar: "Registrar: *(.+)",
+  creationDate: "Creation Date: *(.+)",
+  nameServers: "Name Server: *(.+)",
+  notFound: "No Object Found",
+};
+
+var nzRegex = {
+  domainName: "domain_name: *(.+)",
+  registrar: "registrar_name: *(.+)",
+  creationDate: "domain_dateregistered: *(.+)",
+  nameServers: "ns_name_\d*: *(.+)",
+  notFound: "Available",
+};
+
+var luRegex = {
+  domainName: "domainname: *(.+)",
+  registrar: "registrar-name: *(.+)",
+  status: "domaintype: *(.+)",
+  nameServers: "nserver: *(.+)",
+  notFound: "No such domain",
+};
+
+var czRegex = {
+  domainName: "Domain Name: *(.+)",
+  registrar: "registrar: *(.+)",
+  creationDate: "registered: *(.+)",
+  expirationDate: "expire: *(.+)",
+  nameServers: "nserver: *(.+)",
+  dateFormat: "DD.MM.YYYY hh:mm:ss",
+  notFound: "No entries found",
+};
+
+var cnRegex = {
+  domainName: "domain: *(.+)",
+  registrar: "Registrant: *(.+)",
+  creationDate: "Registration Time: *(.+)",
+  expirationDate: "Expiration Time: *(.+)",
+  status: "Domain Status: *(.+)",
+  nameServers: "Name Server: *(.+)",
+  notFound: "No matching record",
+};
+
+var clRegex = {
+  domainName: "Domain name: *(.+)",
+  registrar: "Registrar name: *(.+)",
+  creationDate: "Creation date: *(.+)",
+  expirationDate: "Expiration date: *(.+)",
+  nameServers: "Name server: *(.+)",
+  dateFormat: "YYYY-MM-DD hh:mm:ss CLST",
+  notFound: "no entries found",
+};
+
+var byRegex = {
+  domainName: "Domain name: *(.+)",
+  registrar: "Registrar: *(.+)",
+  creationDate: "Creation Date: *(.+)",
+  expirationDate: "Expiration Date: *(.+)",
+  nameServers: "Name Server: *(.+)",
+  notFound: "Object does not exist",
+};
+
+var peRegex = {
+  domainName: "Domain Name: *(.+)",
+  registrar: "Sponsoring Registrar: *(.+)",
+  status: "Domain Status: *(.+)",
+  nameServers: "Name Server: *(.+)",
+  notFound: "No Object Found",
+};
+
+var roRegex = {
+  domainName: "Domain Name: *(.+)",
+  registrar: "Registrar: *(.+)",
+  creationDate: "Registered On: *(.+)",
+  expirationDate: "Expires On: *(.+)",
+  status: "Domain Status: *(.+)",
+  nameServers: "Nameserver: *(.+)",
+  notFound: "No entries found",
+};
+
+var twRegex = {
+  domainName: "Domain Name: *(.+)",
+  registrar: "Registration Service Provider: *(.+)",
+  creationDate: "Record created on *(.+)",
+  expirationDate: "Record expires on *(.+)",
+  status: "Domain Status: *(.+)",
+  nameServers: "Domain servers in listed order: *(.+)",
+  notFound: "No Found",
+};
+
+var uaRegex = {
+  domainName: "domain: *(.+)",
+  registrar: "registrar: *(.+)",
+  creationDate: "created: *(.+)",
+  expirationDate: "expires: *(.+)",
+  status: "status: *(.+)",
+  nameServers: "nserver: *(.+)",
+  dateFormat: "YYYY-MM-DD hh:mm:ss+03",
+  notFound: "No entries found",
+};
+
 var parseRawData = function (rawData, domain) {
   if (rawData === null) {
     throw new Error("No Whois data received");
@@ -383,6 +551,42 @@ var parseRawData = function (rawData, domain) {
     domainRegex = coRegex;
   } else if (domain.endsWith(".tr")) {
     domainRegex = trRegex;
+  } else if (domain.endsWith(".it")) {
+    domainRegex = itRegex;
+  } else if (domain.endsWith(".ae")) {
+    domainRegex = aeRegex;
+  } else if (domain.endsWith(".hr")) {
+    domainRegex = hrRegex;
+  } else if (domain.endsWith(".hk")) {
+    domainRegex = hkRegex;
+  } else if (domain.endsWith(".si")) {
+    domainRegex = siRegex;
+  } else if (domain.endsWith(".dk")) {
+    domainRegex = dkRegex;
+  } else if (domain.endsWith(".mx")) {
+    domainRegex = mxRegex;
+  } else if (domain.endsWith(".ai")) {
+    domainRegex = aiRegex;
+  } else if (domain.endsWith(".nz")) {
+    domainRegex = nzRegex;
+  } else if (domain.endsWith(".lu")) {
+    domainRegex = luRegex;
+  } else if (domain.endsWith(".cz") || domain.endsWith(".cr")) {
+    domainRegex = czRegex;
+  } else if (domain.endsWith(".cn")) {
+    domainRegex = cnRegex;
+  } else if (domain.endsWith(".cl")) {
+    domainRegex = clRegex;
+  } else if (domain.endsWith(".by")) {
+    domainRegex = byRegex;
+  } else if (domain.endsWith(".pe")) {
+    domainRegex = peRegex;
+  } else if (domain.endsWith(".ro")) {
+    domainRegex = roRegex;
+  } else if (domain.endsWith(".tw")) {
+    domainRegex = twRegex;
+  } else if (domain.endsWith(".ua")) {
+    domainRegex = uaRegex;
   } else {
     domainRegex = defaultRegex;
     unknownTLD = true;
